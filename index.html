@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <span><h1 class="turns" style="display: none;">player1 turn</h1></span>
+    <div class="outerContainer">
+        <div class="upperRow">
+            <div class="row1">
+                <div class="diceBox dicebox1">
+                    
+                    <div class="row1Dice rolldice1">
+                        <div class="roll1"></div>
+                    </div>
+                    <div class="row1Dice rolldice2">
+                        <div class="roll2"></div>
+                        <div class="roll2"></div>
+                    </div>
+                    <div class="row1Dice rolldice3">
+                        <div class="roll3"></div>
+                        <div class="roll3"></div>
+                        <div class="roll3"></div>
+                    </div>
+                    <div class="row1Dice rolldice4">
+                        <div class="roll4"></div>
+                        <div class="roll4"></div>
+                        <div class="roll4"></div>
+                        <div class="roll4"></div>
+                    </div>
+                    <div class="row1Dice rolldice5">
+                        <div class="roll5"></div>
+                        <div class="roll5"></div>
+                        <div class="roll5 absolute"></div>
+                        <div class="roll5"></div>
+                        <div class="roll5"></div>
+                    </div>
+                    <div class="row1Dice rolldice6">
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                    </div>
+                </div>
+                <div class="player1"><h3>player1</h3></div>
+            </div>
+            <div class="row2">
+                <div class="player2"><h3>player2</h3></div>
+                <div class="diceBox dicebox2">
+                    <div class="row1Dice rolldice1">
+                        <div class="roll1"></div>
+                    </div>
+                    <div class="row1Dice rolldice2">
+                        <div class="roll2"></div>
+                        <div class="roll2"></div>
+                    </div>
+                    <div class="row1Dice rolldice3">
+                        <div class="roll3"></div>
+                        <div class="roll3"></div>
+                        <div class="roll3"></div>
+                    </div>
+                    <div class="row1Dice rolldice4">
+                        <div class="roll4"></div>
+                        <div class="roll4"></div>
+                        <div class="roll4"></div>
+                        <div class="roll4"></div>
+                    </div>
+                    <div class="row1Dice rolldice5">
+                        <div class="roll5"></div>
+                        <div class="roll5"></div>
+                        <div class="roll5 absolute"></div>
+                        <div class="roll5"></div>
+                        <div class="roll5"></div>
+                    </div>
+                    <div class="row1Dice rolldice6">
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="gameContainer">
+        <div class="box1">
+           <div class="red">
+            <div class="innerRed">
+                <div class="innerRedball"><div class="redGoti red1"></div></div>
+                <div class="innerRedball"><div class="redGoti red2"></div></div>
+                <div class="innerRedball"><div class="redGoti red3"></div></div>
+                <div class="innerRedball"><div class="redGoti red4"></div></div>
+            </div> 
+           </div>
+           <div class="middle1">
+            <div class="boxMiddle1 redPath10 greenPath46"></div>
+            <div class="boxMiddle1 redPath11 greenPath47"></div>
+            <div class="boxMiddle1 redPath12"></div>
+            <div class="boxMiddle1 redPath9 greenPath45"></div>
+            <div class="boxMiddle1 greenArea greenPath48"></div>
+            <div class="boxMiddle1 redPath13 greenArea mainGreen"><div class="star"></div></div>
+            <div class="boxMiddle1  redPath8 greenPath44 starArea"><div class="star"></div></div>
+            <div class="boxMiddle1 greenArea greenPath49"></div>
+            <div class="boxMiddle1 redPath14 greenPath1"></div>
+            <div class="boxMiddle1 redPath7 greenPath43"></div>
+            <div class="boxMiddle1 greenArea greenPath50"></div>
+            <div class="boxMiddle1 redPath15 greenPath2"></div>
+            <div class="boxMiddle1 redPath6 greenPath42"></div>
+            <div class="boxMiddle1 greenArea greenPath51"></div>
+            <div class="boxMiddle1 redPath16 greenPath3"></div>
+            <div class="boxMiddle1  redPath5 greenPath41"></div>
+            <div class="boxMiddle1 greenArea greenPath52"></div>
+            <div class="boxMiddle1  redPath17 greenPath4"></div>
+           </div>
+           <div class="green">
+             <div class="innerGreen">
+                <div class="innerGreenball"><div class="greenGoti green1"></div></div>
+                <div class="innerGreenball"><div class="greenGoti green2"></div></div>
+                <div class="innerGreenball"><div class="greenGoti green3"></div></div>
+                <div class="innerGreenball"><div class="greenGoti green4"></div></div>
+            </div>
+           </div>
+        </div>
+        <div class="box2">
+            <div class="mid1">
+                <div class="boxMid1"></div>
+                <div class="boxMid1 redPath redArea mainRed"><div class="star redStar"></div></div>
+                <div class="boxMid1 redPath1 greenPath37"></div>
+                <div class="boxMid1 redPath2 greenPath38"></div>
+                <div class="boxMid1 redPath3 greenPath39"></div>
+                <div class="boxMid1 redPath4 greenPath40"></div>
+                <div class="boxMid1 redPath50 greenPath36"></div>
+                <div class="boxMid1 redPath51 redArea"></div>
+                <div class="boxMid1 redPath52 redArea"></div>
+                <div class="boxMid1 redPath53 redArea"></div>
+                <div class="boxMid1 redPath54 redArea"></div>
+                <div class="boxMid1 redPath55 redArea"></div>
+                <div class="boxMid1 redPath49 greenPath35"></div>
+                <div class="boxMid1 redPath48 greenPath34"></div>
+                <div class="boxMid1  redPath47 greenPath33 starArea"><div class="star"></div></div>
+                <div class="boxMid1 redPath46 greenPath32"></div>
+                <div class="boxMid1 redPath45 greenPath31"></div>
+                <div class="boxMid1 redPath44 greenPath30"></div>
+            </div>
+            <div class="center">
+                <div class="tri1 red"></div>
+                <div class="tri2 Green"></div>
+                <div class="tri3 Blue"></div>
+                <div class="tri4 Yellow"></div>
+            </div>
+            <div class="mid2">
+                <div class="boxMid2 redPath18 greenPath5"></div>
+                <div class="boxMid2 redPath19 greenPath6"></div>
+                <div class="boxMid2 redPath20 greenPath7"></div>
+                <div class="boxMid2 redPath21 greenPath8 starArea"><div class="star"></div></div>
+                <div class="boxMid2 redPath22 greenPath9"></div>
+                <div class="boxMid2 redPath23 greenPath10"></div>
+                <div class="boxMid2 yellowArea"></div>
+                <div class="boxMid2 yellowArea"></div>
+                <div class="boxMid2 yellowArea"></div>
+                <div class="boxMid2 yellowArea"></div>
+                <div class="boxMid2 yellowArea"></div>
+                <div class="boxMid2 redPath24 greenPath11"></div>
+                <div class="boxMid2 redPath30 greenPath17"></div>
+                <div class="boxMid2 redPath29 greenPath16"></div>
+                <div class="boxMid2 redPath28 greenPath15"></div>
+                <div class="boxMid2 redPath27 greenPath14"></div>
+                <div class="boxMid2 redPath26 greenPath13 yellowArea"><div class="star"></div></div>
+                <div class="boxMid2 redPath25 greenPath12"></div>
+            </div>
+        </div>
+        <div class="box3">
+            <div class="blue">
+                 <div class="innerBlue">
+                <div class="innerBlueball"><div class="blueGoti"></div></div>
+                <div class="innerBlueball"><div class="blueGoti"></div></div>
+                <div class="innerBlueball"><div class="blueGoti"></div></div>
+                <div class="innerBlueball"><div class="blueGoti"></div></div>
+            </div>
+            </div>
+            <div class="middle2">
+                <div class="boxMiddle2 redPath43 greenPath29"></div>
+                <div class="boxMiddle2 blueArea"></div>
+                <div class="boxMiddle2 redPath31 greenPath18"></div>
+                <div class="boxMiddle2 redPath42 greenPath28"></div>
+                <div class="boxMiddle2 blueArea"></div>
+                <div class="boxMiddle2 redPath32 greenPath19"></div>
+                <div class="boxMiddle2 redPath41 greenPath27"></div>
+                <div class="boxMiddle2 blueArea"></div>
+                <div class="boxMiddle2 redPath33 greenPath20"></div>
+                <div class="boxMiddle2 redPath40 greenPath26"></div>
+                <div class="boxMiddle2 blueArea"></div>
+                <div class="boxMiddle2 redPath34 greenPath21"><div class="star"></div></div>
+                <div class="boxMiddle2 redPath39 greenPath26 blueArea"><div class="star"></div></div>
+                <div class="boxMiddle2 blueArea"></div>
+                <div class="boxMiddle2 redPath35 greenPath22 starArea"></div>
+                <div class="boxMiddle2 redPath38 greenPath25"></div>
+                <div class="boxMiddle2 redPath37 greenPath24"></div>
+                <div class="boxMiddle2 redPath36 greenPath23"></div>
+            </div>
+            <div class="yellow">
+                     <div class="innerYellow">
+                <div class="innerYellowball"><div class="yellowGoti"></div></div>
+                <div class="innerYellowball"><div class="yellowGoti"></div></div>
+                <div class="innerYellowball"><div class="yellowGoti"></div></div>
+                <div class="innerYellowball"><div class="yellowGoti"></div></div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="lowerRow">
+            <div class="row1">
+                <div class="diceBox dicebox3">
+                    <div class="row1Dice rolldice1">
+                        <div class="roll1"></div>
+                    </div>
+                    <div class="row1Dice rolldice2">
+                        <div class="roll2"></div>
+                        <div class="roll2"></div>
+                    </div>
+                    <div class="row1Dice rolldice3">
+                        <div class="roll3"></div>
+                        <div class="roll3"></div>
+                        <div class="roll3"></div>
+                    </div>
+                    <div class="row1Dice rolldice4">
+                        <div class="roll4"></div>
+                        <div class="roll4"></div>
+                        <div class="roll4"></div>
+                        <div class="roll4"></div>
+                    </div>
+                    <div class="row1Dice rolldice5">
+                        <div class="roll5"></div>
+                        <div class="roll5"></div>
+                        <div class="roll5 absolute"></div>
+                        <div class="roll5"></div>
+                        <div class="roll5"></div>
+                    </div>
+                    <div class="row1Dice rolldice6">
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                    </div>
+
+                </div>
+                <div class="player3"><h3>player3</h3></div>
+            </div>
+            <div class="row2">
+                <div class="player4"><h3>player4</h3></div>
+                <div class="diceBox dicebox4">
+                    <div class="row1Dice rolldice1">
+                        <div class="roll1"></div>
+                    </div>
+                    <div class="row1Dice rolldice2">
+                        <div class="roll2"></div>
+                        <div class="roll2"></div>
+                    </div>
+                    <div class="row1Dice rolldice3">
+                        <div class="roll3"></div>
+                        <div class="roll3"></div>
+                        <div class="roll3"></div>
+                    </div>
+                    <div class="row1Dice rolldice4">
+                        <div class="roll4"></div>
+                        <div class="roll4"></div>
+                        <div class="roll4"></div>
+                        <div class="roll4"></div>
+                    </div>
+                    <div class="row1Dice rolldice5">
+                        <div class="roll5"></div>
+                        <div class="roll5"></div>
+                        <div class="roll5 absolute"></div>
+                        <div class="roll5"></div>
+                        <div class="roll5"></div>
+                    </div>
+                    <div class="row1Dice rolldice6">
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                        <div class="roll6"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
