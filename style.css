@@ -136,7 +136,6 @@
     position: relative;
 }
 .gameContainer .box1 .red .innerRed .redGoti{
-    z-index: 1000;
     position: relative;
     width: 50%;
     height: 50%;
@@ -199,13 +198,14 @@
 }
 .greenGoti{
     position: absolute;
-    width: 50%;
-    height: 50%;
+    width: 70%;
+    height: 70%;
     border: 0.1px solid rgb(72, 72, 72);
     border-radius: 50%;
     background-color: rgb(10, 102, 39);
     box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.9);
 }
+
 .boxMid1,.boxMid2,.boxMiddle1,.boxMiddle2{
     display: flex;
     align-items: center;
@@ -226,6 +226,12 @@
 }
 [class*="redPath"] {
     position: relative;
+}
+[class*="bluePath"]{
+    position:relative;
+}
+[class*="yellowPath"]{
+    position:relative;
 }
 /* .path .redGoti.red1,.redGoti.red2,.redGoti.red3,.redGoti.red4{
      border: 0.1px solid rgb(72, 72, 72);
@@ -363,6 +369,15 @@
     background-color: rgb(18, 78, 137);
     box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.9);
 }
+.blueGoti{
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    border: 0.1px solid rgb(72, 72, 72);
+    border-radius: 50%;
+    background-color: rgb(18, 78, 137);
+    box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.9);
+}
 .gameContainer .box3 .blue .innerBlue .innerBlueball{
     width: 41%;
     height: 41%;
@@ -412,6 +427,15 @@
 .gameContainer .box3 .yellow .innerYellow .yellowGoti{
     width: 50%;
     height: 50%;
+    border: 0.1px solid rgb(72, 72, 72);
+    border-radius: 50%;
+    background-color: rgb(141, 169, 27);
+    box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.9);
+}
+.yellowGoti{
+    position: absolute;
+    width: 70%;
+    height: 70%;
     border: 0.1px solid rgb(72, 72, 72);
     border-radius: 50%;
     background-color: rgb(141, 169, 27);
