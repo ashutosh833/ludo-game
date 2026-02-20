@@ -267,7 +267,6 @@ const rollDice=(event)=>{
     GreenPlayer[3] = randNo();
     BluePlayer[3] = randNo();
     YellowPlayer[3] = randNo();
-    console.log(rand1,rand2,rand3,rand4)
 
             if(turn.innerHTML=="player1 turn"){ 
               redGoti.forEach((el)=>{
@@ -355,10 +354,6 @@ wholeChange(mainRed, "outerRed", redGoti, sortedRedPath, redpush, RedPlayer, red
 wholeChange(mainGreen, "outerGreen", greenGoti, sortedGreenPath, greenpush, GreenPlayer,   greenCurr, innerGreenball,"player2 turn","greenGoti","player3 turn");
 wholeChange(mainBlue, "outerBlue", blueGoti, sortedBluePath, bluepush, BluePlayer, blueCurr, innerBlueball, "player3 turn","blueGoti","player4 turn");
 wholeChange(mainYellow, "outerYellow", yellowGoti, sortedYellowPath, yellowpush, YellowPlayer,   yellowCurr, innerYellowball,"player4 turn","yellowGoti","player1 turn");
-// wholeChange(mainRed,"outerRed",redGoti,sortedRedPath,redpush,RedPlayer,redCurr,innerRedball,"player2 turn","redGoti");
-// wholeChange(mainGreen,"outerGreen",greenGoti,sortedGreenPath,greenpush,GreenPlayer,greenCurr,innerGreenball,"player3 turn","greenGoti");
-// wholeChange(mainBlue, "outerBlue", blueGoti, sortedBluePath, bluepush, BluePlayer, blueCurr, innerBlueball, "player4 turn","blueGoti");
-// wholeChange(mainYellow, "outerYellow", yellowGoti, sortedYellowPath, yellowpush, YellowPlayer, yellowCurr, innerYellowball, "player1 turn","yellowGoti");
 
 diceBox.forEach((el)=>{
     el.addEventListener("click",rollDice);
@@ -366,3 +361,4 @@ diceBox.forEach((el)=>{
 
 let ting=new Audio("ting.mp3");
 let diceRollsound=new Audio("diceroll.mp3");
+
