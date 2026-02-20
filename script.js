@@ -32,10 +32,6 @@ let sortedRedPath = [...pathRed]
     let bNum = +b.className.match(/greenPath(\d+)/)[1];
     return aNum - bNum;
   });
-  let yellowFunctionCalled=false;
-  let blueFunctionCalled=false;
-  let redFunctionCalled=false;
-  let greenFunctionCalled=false;
   let BluePlayer=[true,0,0];
   let RedPlayer=[true,0,0];
   let GreenPlayer=[true,0,0]
@@ -73,7 +69,7 @@ let rolldiceArr=["rolldice1","rolldice2","rolldice3","rolldice4","rolldice5","ro
 let randNo=()=>{
    return Math.floor(Math.random()*6);
 }
-let random;
+// let random;
 for(let i=1;i<diceboxes.length;i++){
     diceboxes[i].style.visibility="hidden";
 }
@@ -96,19 +92,19 @@ function chanceNo1(i,random) {
  
   // hide AFTER animation ends
 }
-function gotiChalo(i,goti,goticurr,sortedPath,push,playerArr){
+function gotiChalo(i,goti,goticurr,sortedPath,push,playerArr,NextPlayer,rand){
    isGotiClicked=true;
-   goticurr[i]+=random+push[i];
-   sortedPath[goticurr[i]].appendChild(goti[i]);
+   goticurr[i]+=rand+push[i];
+   if(goticurr[i] < sortedPath.length){
+      sortedPath[goticurr[i]].appendChild(goti[i]);
+    }
    push[i]=1;
    isDiceStop=false;
-    playerArr[2]=1;
-   if(sortedPath[goticurr[i]].classList.contains("starArea")){
-      sortedPath[goticurr[i]].style.display="inlineBlock"
-   } 
+   playerArr[2]=1;
    if(!(sortedPath[goticurr[i]].classList.contains("starArea"))){
-   checkKills( sortedPath[goticurr[i]],i);
+   checkKills( sortedPath[goticurr[i]],i);                                    
    }
+  turn.innerHTML=NextPlayer;
 }
 function gotiNikalo(main,outer,i,goti,playerArr){
   main.appendChild(goti[i]);
@@ -132,42 +128,48 @@ function starter(playerArr){
 function otherThan5(playerArr,NextPlayer,goti,goticurr,sortedPath,push,outer){
     if(playerArr[1]==1){
          setTimeout(()=>{
+          turn.innerHTML=NextPlayer;
            let goti2=Array.from(goti).find((el)=>{
                return el.classList.contains(outer);
             })
             let i=Array.from(goti).indexOf(goti2);
-             gotiChalo(i,goti,goticurr,sortedPath,push,playerArr);
+             gotiChalo(i,goti,goticurr,sortedPath,push,playerArr,NextPlayer,playerArr[3]);
          },500)
        }
        isGotiClicked=false;
-       turn.innerHTML=NextPlayer;
+       
        if(isGotiClicked==true||playerArr[0]==true){
+        turn.innerHTML=NextPlayer;
          isDiceStop=false;
        }else{
            isDiceStop=true;
        }
 }
 
-function wholeChange(main,outer,goti,sortedPath,push,playerArr,gotiCurr,innerGotiBall,playerTurn,targetClass){
-for(let i=0;i<4;i++){//i use here let si that each listener has its own i'''
+function wholeChange(main,outer,goti,sortedPath,push,playerArr,gotiCurr,innerGotiBall,playerTurn,targetClass,NextPlayer,rand){
+for(let i=0;i<4;i++){//i use here let si that each listener has its own i
   
-    goti[i].addEventListener("click",()=>{
+    goti[i].addEventListener("click",(event)=>{
       if(goti[i].classList.contains(outer)&&isGotiClicked==false){
         if(turn.innerHTML==playerTurn){
       playerArr[2]=0;
           if(event.target.classList.contains(targetClass)&&playerArr[2]==0){
-            gotiChalo(i,goti,gotiCurr,sortedPath,push,playerArr);
+            gotiChalo(i,goti,gotiCurr,sortedPath,push,playerArr,NextPlayer,playerArr[3]);
+             if(playerArr[3]==5){
+              turn.innerHTML=playerTurn;
+            }
           }       
         }                                   
       }
     })
     innerGotiBall[i].addEventListener("click",()=>{
-    if(playerArr[2]==0&&random==5&&turn.innerHTML==playerTurn){      
-        gotiNikalo(main,outer,i,goti,playerArr);
+    if(playerArr[2]==0&&playerArr[3]==5&&turn.innerHTML==playerTurn){      
+        gotiNikalo(main,outer,i,goti,playerArr,NextPlayer);
         playerArr[2]=1;
     }
    })
-      }
+  
+  }
 }
 function changeNo2(i,random){
    if(random!==5){
@@ -232,11 +234,11 @@ switch(color) {
 }
 }
 function checkChance(){
-  for(i=0;i>4;i++){
-    redGoti[i].style.zIndex=0;
-    blueGoti[i].style.zIndex=0;
-    greenGoti[i].style.zIndex=0;
-    yellowGoti[i].style.zIndex=0;
+  for(let i=0;i<4;i++){
+    redGoti[i].style.zIndex=-1;
+    blueGoti[i].style.zIndex=-1;
+    greenGoti[i].style.zIndex=-1;
+    yellowGoti[i].style.zIndex=-1;
   }
 }
 function checkKills(el,i){
@@ -261,16 +263,19 @@ function checkKills(el,i){
 const rollDice=(event)=>{
   if(isDiceStop==false){
     isDiceStop=true;
-    random=randNo();
+    RedPlayer[3] = randNo();
+    GreenPlayer[3] = randNo();
+    BluePlayer[3] = randNo();
+    YellowPlayer[3] = randNo();
+    console.log(rand1,rand2,rand3,rand4)
 
             if(turn.innerHTML=="player1 turn"){ 
-                  checkChance();
-                          RedPlayer[2]=0;
               redGoti.forEach((el)=>{
                 el.style.zIndex=1000;
               })
+                          RedPlayer[2]=0;
               starter(RedPlayer);
-                  if(random==5){
+                  if(RedPlayer[3]==5){
                          if(RedPlayer[0]==false){
                           console.log("this is not first goti");
                          }else{
@@ -280,17 +285,16 @@ const rollDice=(event)=>{
                   }else{
                       otherThan5(RedPlayer,"player2 turn",redGoti,redCurr,sortedRedPath,redpush,"outerRed");
                   }
-              chanceNo1(0,random);
-              changeNo2(1,random);
+              chanceNo1(0,RedPlayer[3]);
+              changeNo2(1,RedPlayer[3]);
             }
               else if(turn.innerHTML=="player2 turn"){
-                    checkChance();
                 greenGoti.forEach((el)=>{
                 el.style.zIndex=1000;
               })
                   starter(GreenPlayer);
                   GreenPlayer[2]=0;
-                  if(random==5){
+                  if(GreenPlayer[3]==5){
                           
                          if(GreenPlayer[0]==false){
                            isDiceStop=true;
@@ -302,16 +306,15 @@ const rollDice=(event)=>{
                   }else{
                       otherThan5(GreenPlayer,"player3 turn",greenGoti,greenCurr,sortedGreenPath,greenpush, "outerGreen");
                   }
-                  chanceNo1(1,random);
-                  changeNo2(2,random);
+                  chanceNo1(1,GreenPlayer[3]);
+                  changeNo2(2,GreenPlayer[3]);
             }else if(turn.innerHTML=="player3 turn"){
-                  checkChance();
-              blueGoti.forEach((el)=>{
+                  blueGoti.forEach((el)=>{
                 el.style.zIndex=1000;
               })
               BluePlayer[2]=0;
                   starter(BluePlayer); 
-                  if(random==5){
+                  if(BluePlayer[3]==5){
                     
                     if(BluePlayer[0]==false){
                         isDiceStop=true;
@@ -322,16 +325,15 @@ const rollDice=(event)=>{
                   }else{
                       otherThan5(BluePlayer,"player4 turn",blueGoti,blueCurr,sortedBluePath,bluepush, "outerBlue");
                   }
-                  chanceNo1(2,random);
-                  changeNo2(3,random);
+                  chanceNo1(2,BluePlayer[3]);
+                  changeNo2(3,BluePlayer[3]);
             }else{
-                  checkChance();
-              yellowGoti.forEach((el)=>{
+                 yellowGoti.forEach((el)=>{
                 el.style.zIndex=1000;
               })
                  YellowPlayer[2]=0;
                   starter(YellowPlayer); 
-                  if(random==5){
+                  if(YellowPlayer[3]==5){
                     
                     if(YellowPlayer[0]==false){
                      
@@ -343,20 +345,20 @@ const rollDice=(event)=>{
                   }else{
                       otherThan5(YellowPlayer,"player1 turn",yellowGoti,yellowCurr,sortedYellowPath,yellowpush, "outerYellow");
                   }
-              chanceNo1(3,random);
-              changeNo2(0,random);           
+              chanceNo1(3,YellowPlayer[3]);
+              changeNo2(0,YellowPlayer[3]);           
         }             
       }        
   }
 
-wholeChange(mainRed, "outerRed", redGoti, sortedRedPath, redpush, RedPlayer, redCurr, innerRedball, "player1 turn","redGoti");
-wholeChange(mainGreen, "outerGreen", greenGoti, sortedGreenPath, greenpush, GreenPlayer,   greenCurr, innerGreenball,"player2 turn","greenGoti");
-wholeChange(mainBlue, "outerBlue", blueGoti, sortedBluePath, bluepush, BluePlayer, blueCurr, innerBlueball, "player3 turn","blueGoti");
-wholeChange(mainYellow, "outerYellow", yellowGoti, sortedYellowPath, yellowpush, YellowPlayer,   yellowCurr, innerYellowball,"player4 turn","yellowGoti");
-wholeChange(mainRed,"outerRed",redGoti,sortedRedPath,redpush,RedPlayer,redCurr,innerRedball,"player2 turn","redGoti");
-wholeChange(mainGreen,"outerGreen",greenGoti,sortedGreenPath,greenpush,GreenPlayer,greenCurr,innerGreenball,"player3 turn","greenGoti");
-wholeChange(mainBlue, "outerBlue", blueGoti, sortedBluePath, bluepush, BluePlayer, blueCurr, innerBlueball, "player4 turn","blueGoti");
-wholeChange(mainYellow, "outerYellow", yellowGoti, sortedYellowPath, yellowpush, YellowPlayer, yellowCurr, innerYellowball, "player1 turn","yellowGoti");
+wholeChange(mainRed, "outerRed", redGoti, sortedRedPath, redpush, RedPlayer, redCurr, innerRedball, "player1 turn","redGoti","player2 turn");
+wholeChange(mainGreen, "outerGreen", greenGoti, sortedGreenPath, greenpush, GreenPlayer,   greenCurr, innerGreenball,"player2 turn","greenGoti","player3 turn");
+wholeChange(mainBlue, "outerBlue", blueGoti, sortedBluePath, bluepush, BluePlayer, blueCurr, innerBlueball, "player3 turn","blueGoti","player4 turn");
+wholeChange(mainYellow, "outerYellow", yellowGoti, sortedYellowPath, yellowpush, YellowPlayer,   yellowCurr, innerYellowball,"player4 turn","yellowGoti","player1 turn");
+// wholeChange(mainRed,"outerRed",redGoti,sortedRedPath,redpush,RedPlayer,redCurr,innerRedball,"player2 turn","redGoti");
+// wholeChange(mainGreen,"outerGreen",greenGoti,sortedGreenPath,greenpush,GreenPlayer,greenCurr,innerGreenball,"player3 turn","greenGoti");
+// wholeChange(mainBlue, "outerBlue", blueGoti, sortedBluePath, bluepush, BluePlayer, blueCurr, innerBlueball, "player4 turn","blueGoti");
+// wholeChange(mainYellow, "outerYellow", yellowGoti, sortedYellowPath, yellowpush, YellowPlayer, yellowCurr, innerYellowball, "player1 turn","yellowGoti");
 
 diceBox.forEach((el)=>{
     el.addEventListener("click",rollDice);
