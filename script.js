@@ -267,7 +267,7 @@ const rollDice=(event)=>{
     GreenPlayer[3] = randNo();
     BluePlayer[3] = randNo();
     YellowPlayer[3] = randNo();
-
+    
             if(turn.innerHTML=="player1 turn"){ 
               redGoti.forEach((el)=>{
                 el.style.zIndex=1000;
@@ -355,10 +355,10 @@ wholeChange(mainGreen, "outerGreen", greenGoti, sortedGreenPath, greenpush, Gree
 wholeChange(mainBlue, "outerBlue", blueGoti, sortedBluePath, bluepush, BluePlayer, blueCurr, innerBlueball, "player3 turn","blueGoti","player4 turn");
 wholeChange(mainYellow, "outerYellow", yellowGoti, sortedYellowPath, yellowpush, YellowPlayer,   yellowCurr, innerYellowball,"player4 turn","yellowGoti","player1 turn");
 
+
 diceBox.forEach((el)=>{
     el.addEventListener("click",rollDice);
 });
 
 let ting=new Audio("ting.mp3");
 let diceRollsound=new Audio("diceroll.mp3");
-
